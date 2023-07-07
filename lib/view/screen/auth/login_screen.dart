@@ -24,42 +24,45 @@ class LoginScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  child: Image.asset(AppImageAsset.finderIcon),
+                  child: Image.asset(Assets.assetsImagesFinderIcon),
                 ),
                 Column(
                   children: [
-                    Text(
+                    const Text(
                       'WELCOME!',
                       style: TextStyle(
                           color: AppColor.secondaryColor, fontSize: 48),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    const Text(
                       'Nice to see you!',
                       style: TextStyle(
                           color: AppColor.secondaryColor, fontSize: 24),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           "Please Login here or ",
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: AppColor.secondaryColor, fontSize: 24),
                         ),
                         InkWell(
-                          child: Text(
+                          child: const Text(
                             "Register",
                             style: TextStyle(
                                 color: AppColor.primaryColor, fontSize: 24),
                           ),
+                          onTap: () {
+                            controller.goToSignupPage();
+                          },
                         ),
                       ],
                     ),
@@ -77,6 +80,7 @@ class LoginScreen extends StatelessWidget {
                                 labeltext: 'Email',
                                 iconData: Icons.email,
                                 mycontroller: controller.emailController,
+                                keyboardType: TextInputType.emailAddress,
                                 valid: (value) {
                                   return validInput(value!, 5, 100, 'email');
                                 },

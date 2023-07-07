@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:home_finder/core/constant/colors.dart';
 
 class CustomTextFormAuth extends StatelessWidget {
@@ -9,19 +10,21 @@ class CustomTextFormAuth extends StatelessWidget {
   final String? Function(String?)? valid;
   final bool isNumber;
   final bool obscureText;
+  final TextInputType keyboardType;
   final void Function()? onTapIcon;
 
-  const CustomTextFormAuth(
-      {Key? key,
-      required this.hinttext,
-      required this.labeltext,
-      required this.iconData,
-      required this.mycontroller,
-      required this.valid,
-      required this.isNumber,
-      this.obscureText = false,
-      this.onTapIcon})
-      : super(key: key);
+  const CustomTextFormAuth({
+    Key? key,
+    required this.hinttext,
+    required this.labeltext,
+    required this.iconData,
+    required this.mycontroller,
+    this.valid,
+    required this.isNumber,
+    this.obscureText = false,
+    this.onTapIcon,
+    this.keyboardType = TextInputType.text,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,7 @@ class CustomTextFormAuth extends StatelessWidget {
         cursorColor: AppColor.primaryColor,
         keyboardType: isNumber
             ? const TextInputType.numberWithOptions(decimal: true)
-            : TextInputType.text,
+            : keyboardType,
         validator: valid,
         controller: mycontroller,
         obscureText: obscureText == null || obscureText == false ? false : true,

@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:home_finder/core/constant/routes.dart';
 
 abstract class LoginController extends GetxController {
-  // login(String email, String password);
+  login(String email, String password);
   showPassword();
+  goToSignupPage();
 }
 
 class LoginControllerImp extends LoginController {
-  // @override
-  // login(String email, String password) {}
   late TextEditingController emailController;
   late TextEditingController passwordController;
-  bool isPasswordVisible = false;
+  bool isPasswordVisible = true;
 
   @override
   showPassword() {
@@ -31,5 +31,13 @@ class LoginControllerImp extends LoginController {
     emailController.dispose();
     passwordController.dispose();
     super.onClose();
+  }
+
+  @override
+  login(String email, String password) {}
+
+  @override
+  goToSignupPage() {
+    Get.toNamed(AppRoute.signup);
   }
 }

@@ -1,4 +1,9 @@
-class AppImageAsset {
-  static const String logo = 'assets/logo.png';
-  static const String finderIcon = 'assets/finder_icon.png';
+class Assets {
+  Assets._();
+
+  /// Assets for assetsImagesFinderIcon
+  static const String assetsImagesFinderIcon = "assets/images/finder_icon.png";
+
+  /// Assets for assetsImagesLogo
+  static const String assetsImagesLogo = "assets/images/logo.png";
 }

@@ -30,7 +30,7 @@ class SplashScreen extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Image.asset(AppImageAsset.logo),
+          child: Image.asset(Assets.assetsImagesLogo),
         ),
       ),
     );
